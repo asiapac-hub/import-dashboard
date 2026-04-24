@@ -21,3 +21,19 @@ button,select,input{font-family:inherit}
 @media(max-width:1250px){.app-shell{grid-template-columns:310px 1fr}.kpi-grid{grid-template-columns:repeat(3,1fr)}.charts-grid{grid-template-columns:1fr}}
 @media(max-width:860px){.app-shell{display:block}.sidebar{position:relative;height:auto}.kpi-grid{grid-template-columns:repeat(2,1fr)}.hero-panel{display:block}.primary-btn{margin-top:14px}.main-content{padding:14px}.app-shell.filters-hidden .show-filters{display:inline-flex}}
 @media(max-width:560px){.kpi-grid{grid-template-columns:1fr}.brand-card h1{font-size:23px}.hero-panel h2{font-size:22px}}
+/* Ajustes v3 */
+select{height:40px;appearance:auto;background:#fff}
+select[multiple]{height:40px}
+.field-picker-box{padding:12px 12px 6px;border:1px dashed var(--line);border-radius:16px;background:#fafbfc;margin-bottom:12px}
+.field-picker-box>strong{display:block;color:var(--brand);font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.field-selector{display:flex;gap:10px;flex-wrap:wrap}
+.field-check{display:inline-flex;grid-template-columns:none;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 12px;color:var(--ink);font-size:13px;font-weight:900;text-transform:uppercase;white-space:nowrap}
+.field-check input{width:auto;accent-color:var(--orange)}
+.field-order-box{align-items:flex-start;flex-direction:column}
+.field-order-box>strong{display:block;text-transform:uppercase;letter-spacing:.08em}
+.field-order-box>span{display:block;margin-top:2px}
+.chip{border-radius:10px;border:0;background:#dcefe4;color:#264536;padding:12px 14px;font-size:13px;text-transform:uppercase}
+.field-chips .chip:nth-child(2){background:#eadcf2;color:#4e3560}.field-chips .chip:nth-child(3){background:#dce8f4;color:#24415d}.field-chips .chip:nth-child(4){background:#fff0eb;color:#87311c}.field-chips .chip:nth-child(5){background:#e7eaf0;color:#393E4D}.field-chips .chip:nth-child(6){background:#f3e7dc;color:#5d442c}
+.data-cell{font-weight:900;color:#001a3a}.group-row{background:#fff}.level-0 .data-cell{font-size:13px}.level-1 .data-cell{padding-left:42px}.level-2 .data-cell{padding-left:64px}.level-3 .data-cell{padding-left:86px}.level-4 .data-cell{padding-left:108px}
+.swatch{width:18px;height:18px;border-radius:4px;margin-right:10px}
+th{background:#f8fafc;color:var(--brand);border-color:#cfd6e3}td{border-color:#cfd6e3;font-size:14px}table{font-size:14px}

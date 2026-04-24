@@ -35,18 +35,18 @@
         </div>
 
         <div class="filter-list">
-          <label>Mes<select id="filterMes" multiple></select></label>
-          <label>Empresa Ecuador<input id="filterEmpresaEcuador" type="search" placeholder="Buscar empresa Ecuador" /></label>
-          <label>Empresa Exterior<input id="filterEmpresaExterior" type="search" placeholder="Buscar empresa exterior" /></label>
-          <label>Puerto Ecuador<select id="filterPuertoEcuador" multiple></select></label>
-          <label>Puerto Origen<select id="filterPuertoOrigen" multiple></select></label>
-          <label>País Origen<select id="filterPaisOrigen" multiple></select></label>
-          <label>Commodity<select id="filterCommodity" multiple></select></label>
-          <label>Empresa de Transporte<select id="filterTransporte" multiple></select></label>
-          <label>Freight Forwarder Origen<select id="filterFfwOrigen" multiple></select></label>
-          <label>Freight Forwarder Destino<select id="filterFfwDestino" multiple></select></label>
-          <label>Tipo de Despacho<select id="filterTipoDespacho" multiple></select></label>
-          <label>Incoterm<select id="filterIncoterm" multiple></select></label>
+          <label>Mes<select id="filterMes"></select></label>
+          <label>Empresa Ecuador<select id="filterEmpresaEcuador"></select></label>
+          <label>Empresa Exterior<select id="filterEmpresaExterior"></select></label>
+          <label>Puerto Ecuador<select id="filterPuertoEcuador"></select></label>
+          <label>Puerto Origen<select id="filterPuertoOrigen"></select></label>
+          <label>País Origen<select id="filterPaisOrigen"></select></label>
+          <label>Commodity<select id="filterCommodity"></select></label>
+          <label>Empresa de Transporte<select id="filterTransporte"></select></label>
+          <label>Freight Forwarder Origen<select id="filterFfwOrigen"></select></label>
+          <label>Freight Forwarder Destino<select id="filterFfwDestino"></select></label>
+          <label>Tipo de Despacho<select id="filterTipoDespacho"></select></label>
+          <label>Incoterm<select id="filterIncoterm"></select></label>
           <div class="radio-filter">
             <span>Carga refrigerada</span>
             <label><input type="radio" name="reefer" value="all" checked /> Todos</label>
@@ -101,10 +101,15 @@
           </div>
         </div>
 
+        <div class="field-picker-box">
+          <strong>Datos</strong>
+          <div id="fieldSelector" class="field-selector"></div>
+        </div>
+
         <div class="field-order-box">
           <strong>Orden de campos</strong>
-          <span>Arrastra para reordenar</span>
           <div id="fieldChips" class="field-chips"></div>
+          <span>Arrastra para reordenar</span>
         </div>
 
         <div class="table-wrap">
