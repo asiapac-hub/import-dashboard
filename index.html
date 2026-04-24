@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Importaciones Ecuador | Asiapac</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div id="loading" class="loading-screen">
+    <div class="loader-card">
+      <img src="assets/asiapac-logo-completo.png" alt="Asiapac Global Forwarding" />
+      <div class="loader-bar"><span></span></div>
+      <p>Cargando estadísticas de importaciones...</p>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand-block">
+      <img src="assets/asiapac-logo-completo.png" alt="Asiapac Global Forwarding" />
+      <div>
+        <h1>Dashboard Importaciones Ecuador</h1>
+        <p>Estadísticas Q1 2026, análisis por empresas, puertos, países, commodities y freight forwarders.</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button id="resetFiltersTop" class="btn secondary">Limpiar filtros</button>
+      <button id="downloadCsv" class="btn primary">Exportar vista CSV</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside id="filterPanel" class="filters-panel">
+      <div class="filters-header">
+        <div>
+          <span class="eyebrow">Filtros</span>
+          <h2>Segmentación</h2>
+        </div>
+        <button id="toggleFilters" class="icon-btn" title="Ocultar filtros">‹</button>
+      </div>
+
+      <div class="filters-grid">
+        <label>Mes<select id="filterMes" multiple></select></label>
+        <label>Tipo de despacho<select id="filterTipoDespacho" multiple></select></label>
+        <label>Puerto Ecuador<select id="filterPuertoEcuador" multiple></select></label>
+        <label>Puerto origen<select id="filterPuertoOrigen" multiple></select></label>
+        <label>País origen<select id="filterPaisOrigen" multiple></select></label>
+        <label>Región origen<select id="filterRegionOrigen" multiple></select></label>
+        <label>Provincia empresa Ecuador<select id="filterProvincia" multiple></select></label>
+        <label>Commodity<select id="filterCommodity" multiple></select></label>
+        <label>Empresa de transporte<select id="filterTransporte" multiple></select></label>
+        <label>FFW origen<select id="filterFfwOrigen" multiple></select></label>
+        <label>FFW destino<select id="filterFfwDestino" multiple></select></label>
+        <label>Incoterm<select id="filterIncoterm" multiple></select></label>
+      </div>
+
+      <div class="search-box">
+        <label>Buscar empresa Ecuador<input id="searchEmpresaEcuador" type="search" placeholder="Ej. IMPORTADORA..." /></label>
+        <label>Buscar empresa exterior<input id="searchEmpresaExterior" type="search" placeholder="Ej. TRADING..." /></label>
+      </div>
+
+      <button id="resetFilters" class="btn full secondary">Limpiar todos</button>
+    </aside>
+
+    <section class="content">
+      <button id="showFilters" class="show-filters-btn">Mostrar filtros</button>
+
+      <section class="kpi-grid" aria-label="Indicadores principales">
+        <article class="kpi-card"><span>Registros</span><strong id="kpiRegistros">0</strong></article>
+        <article class="kpi-card"><span>Contenedores</span><strong id="kpiCont">0</strong></article>
+        <article class="kpi-card"><span>20 FT</span><strong id="kpi20">0</strong></article>
+        <article class="kpi-card"><span>40 FT</span><strong id="kpi40">0</strong></article>
+        <article class="kpi-card"><span>TEUS FCL</span><strong id="kpiTeusFcl">0</strong></article>
+        <article class="kpi-card"><span>TEUS LCL</span><strong id="kpiTeusLcl">0</strong></article>
+      </section>
+
+      <section class="charts-grid">
+        <article class="panel"><div class="panel-title"><h3>TEUS por mes</h3></div><canvas id="chartMes"></canvas></article>
+        <article class="panel"><div class="panel-title"><h3>Top países origen</h3></div><canvas id="chartPais"></canvas></article>
+        <article class="panel"><div class="panel-title"><h3>Top commodities</h3></div><canvas id="chartCommodity"></canvas></article>
+        <article class="panel"><div class="panel-title"><h3>Top freight forwarders destino</h3></div><canvas id="chartFfw"></canvas></article>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="panel-title table-title-row">
+          <div>
+            <h3>Detalle de importaciones</h3>
+            <p id="tableCount">0 registros visibles</p>
+          </div>
+          <div class="table-controls">
+            <label>Filas por página<select id="pageSize"><option>25</option><option selected>50</option><option>100</option><option>250</option></select></label>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table id="dataTable">
+            <thead>
+              <tr>
+                <th>Mes</th><th>Empresa Ecuador</th><th>Empresa Exterior</th><th>Puerto Ecuador</th><th>Puerto Origen</th><th>País Origen</th><th>Commodity</th><th>Transporte</th><th>FFW Destino</th><th>Tipo Despacho</th><th>20</th><th>40</th><th>CONT</th><th>TEUS FCL</th><th>TEUS LCL</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="pagination">
+          <button id="prevPage" class="btn secondary">Anterior</button>
+          <span id="pageInfo">Página 1</span>
+          <button id="nextPage" class="btn secondary">Siguiente</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
