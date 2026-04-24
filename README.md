@@ -1,35 +1,47 @@
-# Dashboard Importaciones Ecuador
+# Dashboard Importaciones Ecuador, Asiapac
 
-Dashboard estático para publicar en GitHub Pages.
+Versión estática lista para GitHub Pages.
 
-## Estructura
+## Publicación
 
-```text
-index.html
-styles.css
-app.js
-data/importaciones_data.csv
-data/importaciones_summary.json
-assets/asiapac-logo-completo.png
-```
-
-## Publicación en GitHub Pages
-
-1. Crear un repositorio nuevo, por ejemplo `dashboard-importaciones-ecuador`.
-2. Subir todos los archivos de esta carpeta a la raíz del repositorio.
-3. Ir a `Settings > Pages`.
-4. En `Build and deployment`, seleccionar:
+1. Crear o abrir el repositorio en GitHub.
+2. Subir estos archivos en la raíz del repositorio:
+   - `index.html`
+   - `styles.css`
+   - `app.js`
+   - carpeta `data/`
+   - carpeta `assets/`
+3. En GitHub ir a **Settings > Pages**.
+4. En **Build and deployment**, seleccionar:
    - Source: `Deploy from a branch`
    - Branch: `main`
    - Folder: `/root`
-5. Guardar.
+5. Guardar y esperar la publicación.
 
-La URL quedará similar a:
+## Filtros incluidos
 
-```text
-https://TU-USUARIO.github.io/dashboard-importaciones-ecuador/
-```
+- MES
+- EMPRESA ECUADOR
+- EMPRESA EXTERIOR
+- PUERTO ECUADOR
+- PUERTO ORIGEN
+- PAIS ORIGEN
+- COMMODITY
+- EMPRESA DE TRANSPORTE
+- FREIGHT FORWARDER ORIGEN
+- FREIGHT FORWARDER DESTINO
+- TIPO DESPACHO
+- INCOTERM
+- CARGA REFRIGERADA
 
-## Nota técnica
+## Regla de carga refrigerada
 
-El dashboard carga la data desde `data/importaciones_data.csv` usando PapaParse y renderiza gráficos con Chart.js desde CDN. GitHub Pages soporta esta estructura sin backend.
+- Sí: `40_FT_TEMP_CONT > 0`
+- No: `40_FT_TEMP_CONT = 0`
+
+## Métricas principales
+
+- 20GP: columna `20`
+- 40RF: columna `40_FT_TEMP_CONT`
+- 40HC: columna `40 - 40_FT_TEMP_CONT`
+- TEUS: columna `TEUS_FCL`
